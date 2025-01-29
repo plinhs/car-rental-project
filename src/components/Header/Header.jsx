@@ -108,11 +108,17 @@ const Header = ({ setSearchedLocation, setSelectedDates }) => {
   }
 
   const user =   JSON.parse(localStorage.getItem("user"));
-  const [userName,setUserName] = useState(user.name);
+  
+  const [userName, setUserName] = useState("Guest");
 
-  if (userName == null || userName == undefined) {
-    setUserName("Guest");
-  }
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user && user.name) {
+      setUserName(user.name);  
+    } else {
+      setUserName("Guest");   
+    }
+  }, []);
 
   return (
     <div className="header-container">
