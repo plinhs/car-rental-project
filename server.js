@@ -6,7 +6,7 @@ require("dotenv").config();
 
 
 const app = express();
-const port = 3000;
+const PORT = 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -149,6 +149,6 @@ app.post('/signup', async (req, res) => {
 });
 
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on port ${PORT}`);
 });
