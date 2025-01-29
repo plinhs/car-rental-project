@@ -6,6 +6,10 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: process.env.PORT || 5173,
-    host: "0.0.0.0",  // Ensure it binds to all interfaces
+    host: "0.0.0.0",  
+    strictPort: true,
+    preview: {
+      allowedHosts: ["car-rental-project-imkh.onrender.com"], 
+    },
   }
 })
