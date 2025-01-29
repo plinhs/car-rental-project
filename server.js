@@ -6,16 +6,13 @@ require("dotenv").config();
 
 
 const app = express();
-const port = 5000;
+const port = 3000;
 
 app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
-  // host: "localhost",
-  // user: "root",
-  // password: "10293847",
-  // database: "web_final",
+
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
@@ -125,16 +122,16 @@ app.post("/login", async (req, res) => {
 app.post('/signup', async (req, res) => {
   const { email, name, surname, password } = req.body;
 
-  // Check if all fields are provided
+
   if (!email || !name || !surname || !password) {
     return res.status(400).json({ message: 'All fields are required.' });
   }
 
   try {
-    // Hash the password before saving it to the database
-    const hashedPassword = await bcrypt.hash(password, 10);  // 10 salt rounds
 
-    // SQL query to insert the user data with the hashed password
+    const hashedPassword = await bcrypt.hash(password, 10);  
+
+   
     const query = 'INSERT INTO users (email, name, surname, password) VALUES (?, ?, ?, ?)';
 
     db.query(query, [email, name, surname, hashedPassword], (err, result) => {
@@ -143,7 +140,6 @@ app.post('/signup', async (req, res) => {
         return res.status(500).json({ message: 'An error occurred while registering the user.' });
       }
 
-      // Return success response
       res.status(200).json({ message: 'User registered successfully!' });
     });
   } catch (error) {
