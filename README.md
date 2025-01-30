@@ -24,7 +24,7 @@ This project is a full-stack web application built with *React* for the frontend
 - **Database (MySQL):**
   - A **MySQL** database stores user and task data.
 
-# Some few assumption for current website are listed below:
+### Some few assumption for current website are listed below:
 * This website is only available for Türkiye, thus the cities list is limited with Türkiye cities.
 * After logged in, site again displays log in page in some browsers, go back if that occurs, you will be logged in.
 
