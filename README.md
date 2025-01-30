@@ -28,4 +28,7 @@ This project is a full-stack web application built with *React* for the frontend
 * This website is only available for Türkiye, thus the cities list is limited with Türkiye cities.
 * After logged in, site again displays log in page in some browsers, go back if that occurs, you will be logged in.
 
+  ### demo video link :
+  https://drive.google.com/file/d/1yKvxzdPK7QbnnQql0IHbPswXzqIajLtA/view?usp=sharing 
+
   
